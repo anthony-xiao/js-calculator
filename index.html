@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <script src="js.js"></script>
+    <title>Anthony's Calculator</title>
+</head>
+<body>
+    <div class="centered">
+        <div class="calc">
+            <div class="row justify-content-center">
+                <div class="col-8" id="output">
+                    Output
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    <button onclick="clearOutput()" type="button" class="btn btn-light">Clear</button>
+                </div>
+                <div class="col-4">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">7</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">8</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">9</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">/</button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">4</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">5</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">6</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">*</button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">1</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">2</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">3</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">-</button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">.</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">0</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">=</button>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-light btn-margin">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

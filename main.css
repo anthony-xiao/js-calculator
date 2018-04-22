@@ -1,0 +1,34 @@
+.centered {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+}
+
+body {
+    background-color: beige;
+}
+
+.calc {
+    background-color: #5d6063;
+    border-radius: 15px;
+    padding: 15px 0px;
+}
+
+.btn-margin {
+    margin: 5px;
+}
+
+#output {
+    background-color: #eeedc9;
+    padding: 5px;
+    margin: 5px 0px 10px 0px;
+    height: 40px;
+    width: 200px;
+    text-align: right;
+}
+
+.row {
+    text-align: start;    
+}
