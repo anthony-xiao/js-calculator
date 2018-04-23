@@ -14,25 +14,25 @@
         <div class="calc">
             <div class="row justify-content-center">
                 <div class="col-8" id="output">
-                    Output
+                    
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-4">
-                    <button onclick="clearOutput()" type="button" class="btn btn-light">Clear</button>
+                    <button onclick="clearOut()" type="button" class="btn btn-light">Clear</button>
                 </div>
                 <div class="col-4">
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">7</button>
+                    <button onclick="numClick(0)" type="button" class="btn btn-light btn-margin numBtn" value="7">7</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">8</button>
+                    <button onclick="numClick(1)" type="button" class="btn btn-light btn-margin numBtn">8</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">9</button>
+                    <button onclick="numClick(2)" type="button" class="btn btn-light btn-margin numBtn">9</button>
                 </div>
                 <div class="col-2">
                     <button type="button" class="btn btn-light btn-margin">/</button>
@@ -40,13 +40,13 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">4</button>
+                    <button onclick="numClick(3)" type="button" class="btn btn-light btn-margin numBtn">4</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">5</button>
+                    <button onclick="numClick(4)" type="button" class="btn btn-light btn-margin numBtn">5</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">6</button>
+                    <button onclick="numClick(5)" type="button" class="btn btn-light btn-margin numBtn">6</button>
                 </div>
                 <div class="col-2">
                     <button type="button" class="btn btn-light btn-margin">*</button>
@@ -54,13 +54,13 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">1</button>
+                    <button onclick="numClick(6)" type="button" class="btn btn-light btn-margin numBtn">1</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">2</button>
+                    <button onclick="numClick(7)" type="button" class="btn btn-light btn-margin numBtn">2</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">3</button>
+                    <button onclick="numClick(8)" type="button" class="btn btn-light btn-margin numBtn">3</button>
                 </div>
                 <div class="col-2">
                     <button type="button" class="btn btn-light btn-margin">-</button>
@@ -68,10 +68,10 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">.</button>
+                    <button onclick="numClick(9)" type="button" class="btn btn-light btn-margin numBtn">.</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin">0</button>
+                    <button onclick="numClick(10)" type="button" class="btn btn-light btn-margin numBtn">0</button>
                 </div>
                 <div class="col-2">
                     <button type="button" class="btn btn-light btn-margin">=</button>
@@ -84,3 +84,5 @@
     </div>
 </body>
 </html>
+
+
