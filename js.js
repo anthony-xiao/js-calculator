@@ -48,24 +48,108 @@ function clearScreen () {
 }
 
 
+let num1 = 0; //first number in equation
+let num2 = 0; //second number after operator
+let currentOp = ''; //current input operator
+let displayNum = ''; //number on the screen
+let displayCleared = false;
+let previousNum = '';
+let saveNum = false;
 
 
 
+//operator functions
+let ops = {
+    '+': function (x, y) {
+        console.log (x + y)
+        return x + y
+    },
+    '-': function (x, y) {
+        console.log (x - y)
+        return x - y
+    },
+    '*': function (x, y) {
+        console.log (x * y)
+        return x * y
+    },
+    '/': function (x, y) {
+        console.log (x / y)
+        return x / y
+    },
+};
 
 
+//function to clear out output everything
+function clearOut () {
+    num1 = 0;
+    num2 = 0;
+    previousNum = '';
+    saveNum = false;
+    displayCleared = false;
+    displayNum = '';
+    output.innerHTML = '';
+}
+
+//function to clear out output field
+function clearScreen () {
+    displayNum = num1;
+    output.innerHTML = '';
+    displayCleared = true;
+}
 
 
+// number clicks
+let numClick = function (num) {
+    if (displayCleared == true) {
+        displayNum = num;
+        displayCleared = false;
+    } else {
+        displayNum = displayNum + num;
+    }
+    output.innerHTML= displayNum;
+    if (saveNum == true) {
+        num1 = previousNum;
+        num2 = displayNum + num;
+        output.innerHTML = displayNum
+        saveNum = false;
+    }
+}
 
+// operator clicks
+let opClicks = function (operator) {
+    if (saveNum == true) {
+        num1 = 0;
+        num2 = 0;
+    } else {
+        num1 = displayNum;
+        num2 = 0;
+    }
+    currentOp = operator;
+    if (num1 === 0) {
+        num1 = displayNum;
+    } else {
+        num2 = displayNum;
+    }
+    displayNum = '';
+};
 
-
-
-
-
-
-
-
-
-
+//computing the equation
+let compute = function () {
+    if (num1 === 0) {
+        num1 = displayNum;
+    } else {
+        num2 = displayNum;
+    }
+    if (num1 !== 0 && num2 !== 0) {
+        num1 = ops [currentOp] (num1, num2);
+    }
+    saveNum = true;
+    previousNum = num1;
+    output.innerHTML = num1;
+    num1 = 0;
+    num2 = 0;
+    displayNum = ''
+}
 
 
 
