@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
-    <script src="js.js"></script>
+    <script src="js2.js"></script>
     <title>Anthony's Calculator</title>
 </head>
 <body>
@@ -26,58 +26,58 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <button onclick="numClick(0)" type="button" class="btn btn-light btn-margin numBtn" value="7">7</button>
+                    <button onclick="numClick(7)" type="button" class="btn btn-light btn-margin numBtn" value="7">7</button>
                 </div>
                 <div class="col-2">
-                    <button onclick="numClick(1)" type="button" class="btn btn-light btn-margin numBtn">8</button>
+                    <button onclick="numClick(8)" type="button" class="btn btn-light btn-margin numBtn">8</button>
                 </div>
                 <div class="col-2">
-                    <button onclick="numClick(2)" type="button" class="btn btn-light btn-margin numBtn">9</button>
+                    <button onclick="numClick(9)" type="button" class="btn btn-light btn-margin numBtn">9</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin formu" id="divide">/</button>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-2">
-                    <button onclick="numClick(3)" type="button" class="btn btn-light btn-margin numBtn">4</button>
-                </div>
-                <div class="col-2">
-                    <button onclick="numClick(4)" type="button" class="btn btn-light btn-margin numBtn">5</button>
-                </div>
-                <div class="col-2">
-                    <button onclick="numClick(5)" type="button" class="btn btn-light btn-margin numBtn">6</button>
-                </div>
-                <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin formu" id="mulitiply">*</button>
+                    <button onclick="opClicks('/')" type="button" class="btn btn-light btn-margin " id="divide">/</button>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <button onclick="numClick(6)" type="button" class="btn btn-light btn-margin numBtn">1</button>
+                    <button onclick="numClick(4)" type="button" class="btn btn-light btn-margin numBtn">4</button>
                 </div>
                 <div class="col-2">
-                    <button onclick="numClick(7)" type="button" class="btn btn-light btn-margin numBtn">2</button>
+                    <button onclick="numClick(5)" type="button" class="btn btn-light btn-margin numBtn">5</button>
                 </div>
                 <div class="col-2">
-                    <button onclick="numClick(8)" type="button" class="btn btn-light btn-margin numBtn">3</button>
+                    <button onclick="numClick(6)" type="button" class="btn btn-light btn-margin numBtn">6</button>
                 </div>
                 <div class="col-2">
-                    <button type="button" class="btn btn-light btn-margin formu" id="minus">-</button>
+                    <button onclick="opClicks('*')" type="button" class="btn btn-light btn-margin " id="mulitiply">*</button>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-2">
-                    <button onclick="numClick(9)" type="button" class="btn btn-light btn-margin numBtn">.</button>
+                    <button onclick="numClick(1)" type="button" class="btn btn-light btn-margin numBtn">1</button>
                 </div>
                 <div class="col-2">
-                    <button onclick="numClick(10)" type="button" class="btn btn-light btn-margin numBtn">0</button>
+                    <button onclick="numClick(2)" type="button" class="btn btn-light btn-margin numBtn">2</button>
+                </div>
+                <div class="col-2">
+                    <button onclick="numClick(3)" type="button" class="btn btn-light btn-margin numBtn">3</button>
+                </div>
+                <div class="col-2">
+                    <button onclick="opClicks('-')" type="button" class="btn btn-light btn-margin" id="minus">-</button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <button onclick="numClick(.)" type="button" class="btn btn-light btn-margin numBtn">.</button>
+                </div>
+                <div class="col-2">
+                    <button onclick="numClick(0)" type="button" class="btn btn-light btn-margin numBtn">0</button>
                 </div>
                 <div class="col-2">
                     <button type="button" class="btn btn-light btn-margin">=</button>
                 </div>
                 <div class="col-2">
-                    <button onclick="addition()" type="button" class="btn btn-light btn-margin formu" id="add">+</button>
+                    <button onclick="opClicks('+')" type="button" class="btn btn-light btn-margin" id="add" value="+">+</button>
                 </div>
             </div>
         </div>

@@ -1,3 +1,92 @@
+let num1 = 0; //first number in equation
+let num2 = 0; //second number after operator
+let currentOp = ''; //current input operator
+let displayNum = ''; //number on the screen
+let displayCleared = false;
+let previousNum = '';
+let saveNum = false;
+
+
+
+//operator functions
+let ops = {
+    '+': function (x, y) {
+        console.log (x + y)
+        return x + y
+    },
+    '-': function (x, y) {
+        console.log (x - y)
+        return x - y
+    },
+    '*': function (x, y) {
+        console.log (x * y)
+        return x * y
+    },
+    '/': function (x, y) {
+        console.log (x / y)
+        return x / y
+    },
+};
+
+
+//function to clear out output everything
+function clearOut () {
+    output.innerHTML = '';
+    num1 = 0;
+    num2 = 0;
+    currentOp = ''
+    displayCleared = false;
+    previousNum = '';
+    saveNum = false;
+}
+
+//function to clear out output field
+function clearScreen () {
+    displayNum = num1;
+    output.innerHTML = '';
+    displayCleared = true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+let total = 0;
+let equation = []
 
 //function to clear out output field and console
 function clearOut () {
@@ -20,12 +109,18 @@ let numClick = function(i) {
     let currentValue = getNumber[i].innerHTML;
     console.log (currentValue);
     newOutput.innerHTML += currentValue;
+   
 }
+
+let saveLastNum = function () {
+    let oldNum = Number(output.innerHTML);
+}
+//addEventListener
 
 //formulas
 
 //addition
-function getSum(total, num) {
+function getSum(total, operator, num) {
     if (num == null) {
         return total;
     } else {
@@ -33,30 +128,98 @@ function getSum(total, num) {
     }
 }
 
-let saveLastNum = function () {
-    let screenNum = output.innerHTML;
-    let oldNum = Number(screenNum);
-    return oldNum;
+//minus
+function getDif(total, operator, num) {
+    if (num == null) {
+        return total;
+    } else {
+    return total - num;
+    }
 }
 
-let total = 0;
-let equation = []
-//addEventListener
+//multiply
+function getMult(total, operator, num) {
+    if (num == null) {
+        return total;
+    } else {
+    return total * num;
+    }
+}
+
+//divide
+function getDivide(total, operator, num) {
+    if (num == null) {
+        return total;
+    } else {
+    return total / num;
+    }
+}
 
 let addition = function () {
     equation.push(saveLastNum());
+    //equation.push(add.innerHTML)
     total = equation.reduce(getSum);
-    clearScreen();
-    return total;
+    equation = [total];
     output.innerHTML = total;
+    clearScreen();      /* this is clearing but the next line inputs first number back in*/
+}
+
+
+/*
+//count number of numbers the equation array
+let numCount = function () {
+    count = 0;
+    for (let x = 0; x < equation.length; x++) {
+        if (isNaN(equation[x])== false) {
+            count++
+        }
+    }
+    return count;
+}
+
+/*
+let mathOps = function () {
+    if (equation[1] == '+') {
+        total = getSum.apply(null, equation);
+        equation = [total];
+        console.log (total)
+    } else if (equation[1] == '-') {
+        total = getDif.apply(null, equation);
+        equation = [total];
+        console.log (total)
+    } else if (equation[1] == '*') {
+        total = getMult.apply(null, equation);
+        equation = [total];
+        console.log (total) 
+    } else if (equation[1] == '/') {
+        total = getDivide.apply(null, equation);
+        equation = [total];
+        console.log (total) 
+    }
+}
+*/
+/*
+let minus = function () {
+    equation.push(saveLastNum());
+    total = equation.reduce(getDif);
+    equation = [total];
+    output.innerHTML = total;
+    clearScreen();      /* this is clearing but the next line inputs first number back in*/
 }
 
 /*    let sign = document.getElementsByClassName('formu').innerHTML
     console.log (sign);
     */
 
-for (var x = 0; x < ops.lenght; x ++)
+/*for (var x = 0; x < ops.lenght; x ++)
     if (document.getElementsByClassName('ops').innerHTML = '+') {
         total = oldNum + newNum
-    }
+    } */
 
+/*
+let compute = function (operand1, operator1, operand2, operator2, operand3) {
+    if (equation.length = 5) {
+
+    }
+}
+*/
