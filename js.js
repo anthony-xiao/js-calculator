@@ -6,6 +6,28 @@ let currentOp2 = ''; //second input operator
 let displayNum = ''; //number on the screen
 let displayCleared = false; //knowing whether CE was clicked, if yes than we know there is a stored number still
 
+
+//check numX
+let checkNum = function () {
+    if (numX === 0) {
+        numX = displayNum;
+    } else if (numX != 0 && numY === 0){
+        numY = displayNum;
+    } else if (numX != 0 && numY != 0) {
+        numZ = displayNum;
+    }
+}
+
+//execute calculate X and Y
+let countXY = function () {
+    if (numX !== 0 && numY !== 0) {
+        numX = ops [currentOp] (numX, numY);
+        currentOp = currentOp2;
+        currentOp2 = '';
+        numY = 0
+    }
+}
+
 //operator functions
 let ops = {
     '+': function (x, y) {
@@ -31,6 +53,7 @@ let compute = function () {
     checkNum()
     countXY();
     output.innerHTML = numX;
+    displayNum = ''
 }
 
 //reset 
@@ -80,27 +103,6 @@ let opClicks = function (operator) {
     countXY();
     displayNum = '';
 };
-
-//check numX
-let checkNum = function () {
-    if (numX === 0) {
-        numX = displayNum;
-    } else if (numX != 0 && numY === 0){
-        numY = displayNum;
-    } else if (numX != 0 && numY != 0) {
-        numZ = displayNum;
-    }
-}
-
-//execute calculate X and Y
-let countXY = function () {
-    if (numX !== 0 && numY !== 0) {
-        numX = ops [currentOp] (numX, numY);
-        currentOp = currentOp2;
-        currentOp2 = '';
-        numY = 0
-}
-}
 
 
 
