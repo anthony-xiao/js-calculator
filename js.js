@@ -1,10 +1,10 @@
 let numX = 0; //first number in equation
 let numY = 0; //second number after operator
+let numZ = 0; //third number after second operator
 let currentOp = ''; //current input operator
+let currentOp2 = ''; //second input operator
 let displayNum = ''; //number on the screen
 let displayCleared = false; //knowing whether CE was clicked, if yes than we know there is a stored number still
-let previousNum = ''; //stored number for equations longer than 2 numbers
-let saveNum = false; // whether or not there is a previousNum
 
 //operator functions
 let ops = {
@@ -28,18 +28,9 @@ let ops = {
 
 //computing the equation
 let compute = function () {
-    if (numX === 0) {
-        numX = displayNum;
-    } else {
-        numY = displayNum;
-    }
-    if (numX !== 0 && numY !== 0) {
-        numX = ops [currentOp] (numX, numY);
-    }
-    saveNum = true;
-    previousNum = numX;
+    checkNum()
+    countXY();
     output.innerHTML = numX;
-    resetCalc();
 }
 
 //reset 
@@ -51,9 +42,9 @@ let resetCalc = function () {
 
 //function to clear out output everything
 function clearOut () {
-    previousNum = '';
-    saveNum = false;
     displayCleared = false;
+    let currentOp = ''; 
+    let currentOp2 = '';
     resetCalc ();
     output.innerHTML = 0;
 }
@@ -72,49 +63,44 @@ let numClick = function (num) {
         displayNum = num;
         displayCleared = false;
     } else {
-        displayNum = displayNum + num;
+        displayNum += num;
     }
     output.innerHTML= displayNum;
-    if (saveNum == true) {
-        numX = previousNum;
-        numY = displayNum + num;
-        output.innerHTML = displayNum
-        saveNum = false;
-    }
 }
 
 
 // operator clicks
 let opClicks = function (operator) {
-    checkForCe();
-    currentOp = operator;
-    checkNumX ();
+    if (currentOp != '') {
+        currentOp2 = operator;
+    } else {
+        currentOp = operator;
+    }
+    checkNum ();
+    countXY();
     displayNum = '';
 };
 
-//check for saveNum
-let checkForCe = function () {
-    if (saveNum == true) {
-        numX = 0;
-        numY = 0;
-    } else {
-        numX = displayNum;
-        numY = 0;
-    } 
-}
-
 //check numX
-let checkNumX = function () {
+let checkNum = function () {
     if (numX === 0) {
         numX = displayNum;
-    } else {
+    } else if (numX != 0 && numY === 0){
         numY = displayNum;
+    } else if (numX != 0 && numY != 0) {
+        numZ = displayNum;
     }
 }
 
-
-
-
+//execute calculate X and Y
+let countXY = function () {
+    if (numX !== 0 && numY !== 0) {
+        numX = ops [currentOp] (numX, numY);
+        currentOp = currentOp2;
+        currentOp2 = '';
+        numY = 0
+}
+}
 
 
 
