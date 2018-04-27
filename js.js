@@ -1,99 +1,81 @@
-let num1 = 0; //first number in equation
-let num2 = 0; //second number after operator
+let numX = 0; //first number in equation
+let numY = 0; //second number after operator
+let numZ = 0; //third number after second operator
 let currentOp = ''; //current input operator
+let currentOp2 = ''; //second input operator
 let displayNum = ''; //number on the screen
-let displayCleared = false;
-let previousNum = '';
-let saveNum = false;
+let displayCleared = false; //knowing whether CE was clicked, if yes than we know there is a stored number still
 
 
+//check numX
+let checkNum = function () {
+    if (numX === 0) {
+        numX = displayNum;
+    } else if (numX != 0 && numY === 0){
+        numY = displayNum;
+    } else if (numX != 0 && numY != 0) {
+        numZ = displayNum;
+    }
+}
+
+//execute calculate X and Y
+let countXY = function () {
+    if (numX !== 0 && numY !== 0) {
+        numX = ops [currentOp] (numX, numY);
+        currentOp = currentOp2;
+        currentOp2 = '';
+        numY = 0
+    }
+}
 
 //operator functions
 let ops = {
     '+': function (x, y) {
-        console.log (x + y)
-        return x + y
+        console.log (Number(x) + Number(y))
+        return (Number(x) + Number(y))
     },
     '-': function (x, y) {
-        console.log (x - y)
-        return x - y
+        console.log (Number(x) - Number(y))
+        return (Number(x) - Number(y))
     },
     '*': function (x, y) {
-        console.log (x * y)
-        return x * y
+        console.log (Number(x) * Number(y))
+        return (Number(x) * Number(y))
     },
     '/': function (x, y) {
-        console.log (x / y)
-        return x / y
+        console.log (Number(x) / Number(y))
+        return (Number(x) / Number(y))
     },
 };
 
+//computing the equation
+let compute = function () {
+    checkNum()
+    countXY();
+    output.innerHTML = numX;
+    displayNum = ''
+}
+
+//reset 
+let resetCalc = function () {
+    numX = 0;
+    numY = 0;
+    displayNum = ''
+}
 
 //function to clear out output everything
 function clearOut () {
-    output.innerHTML = '';
-    num1 = 0;
-    num2 = 0;
-    currentOp = ''
     displayCleared = false;
-    previousNum = '';
-    saveNum = false;
+    let currentOp = ''; 
+    let currentOp2 = '';
+    resetCalc ();
+    output.innerHTML = 0;
 }
 
 //function to clear out output field
 function clearScreen () {
-    displayNum = num1;
-    output.innerHTML = '';
-    displayCleared = true;
-}
-
-
-let num1 = 0; //first number in equation
-let num2 = 0; //second number after operator
-let currentOp = ''; //current input operator
-let displayNum = ''; //number on the screen
-let displayCleared = false;
-let previousNum = '';
-let saveNum = false;
-
-
-
-//operator functions
-let ops = {
-    '+': function (x, y) {
-        console.log (x + y)
-        return x + y
-    },
-    '-': function (x, y) {
-        console.log (x - y)
-        return x - y
-    },
-    '*': function (x, y) {
-        console.log (x * y)
-        return x * y
-    },
-    '/': function (x, y) {
-        console.log (x / y)
-        return x / y
-    },
-};
-
-
-//function to clear out output everything
-function clearOut () {
-    num1 = 0;
-    num2 = 0;
-    previousNum = '';
-    saveNum = false;
-    displayCleared = false;
-    displayNum = '';
-    output.innerHTML = '';
-}
-
-//function to clear out output field
-function clearScreen () {
-    displayNum = num1;
-    output.innerHTML = '';
+    displayNum = numX;
+    output.innerHTML = 0;
     displayCleared = true;
 }
 
@@ -104,57 +86,23 @@ let numClick = function (num) {
         displayNum = num;
         displayCleared = false;
     } else {
-        displayNum = displayNum + num;
+        displayNum += num;
     }
     output.innerHTML= displayNum;
-    if (saveNum == true) {
-        num1 = previousNum;
-        num2 = displayNum + num;
-        output.innerHTML = displayNum
-        saveNum = false;
-    }
 }
+
 
 // operator clicks
 let opClicks = function (operator) {
-    if (saveNum == true) {
-        num1 = 0;
-        num2 = 0;
+    if (currentOp != '') {
+        currentOp2 = operator;
     } else {
-        num1 = displayNum;
-        num2 = 0;
+        currentOp = operator;
     }
-    currentOp = operator;
-    if (num1 === 0) {
-        num1 = displayNum;
-    } else {
-        num2 = displayNum;
-    }
+    checkNum ();
+    countXY();
     displayNum = '';
 };
-
-//computing the equation
-let compute = function () {
-    if (num1 === 0) {
-        num1 = displayNum;
-    } else {
-        num2 = displayNum;
-    }
-    if (num1 !== 0 && num2 !== 0) {
-        num1 = ops [currentOp] (num1, num2);
-    }
-    saveNum = true;
-    previousNum = num1;
-    output.innerHTML = num1;
-    num1 = 0;
-    num2 = 0;
-    displayNum = ''
-}
-
-
-
-
-
 
 
 
@@ -246,7 +194,7 @@ let addition = function () {
     equation = [total];
     output.innerHTML = total;
     clearScreen();      /* this is clearing but the next line inputs first number back in*/
-}
+
 
 
 /*
@@ -289,7 +237,7 @@ let minus = function () {
     equation = [total];
     output.innerHTML = total;
     clearScreen();      /* this is clearing but the next line inputs first number back in*/
-}
+
 
 /*    let sign = document.getElementsByClassName('formu').innerHTML
     console.log (sign);
